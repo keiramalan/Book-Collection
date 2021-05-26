@@ -1,4 +1,4 @@
-
+import ecs100.*;
 /**
  * Book contains an id, name, author, quantity, image
  * @author 13dtc
@@ -13,13 +13,24 @@ public class Book
     private String name;
     private int quantity;
     private String image;
+    private static final String DEFAULT_IMAGE = "borzoi.jpg";
     
-    public Book(int id, String nm, String auth, int qty) {
+    public Book(int id, String nm, String auth, int qty, String img) {
         // intialise instance variables
         this.id = id;
         this.name = nm;
         this.author = auth;
         this.quantity = qty;
+        this.image = img;
+    }
+    
+    /**
+     * Constructor overloading
+     * Set default image 
+     * Pulls info from other method and adds deafult image
+     */
+    public Book(int id, String nm, String author, int qty) {
+        this(id, nm, author, qty, DEFAULT_IMAGE);
     }
     
     /**
@@ -52,5 +63,17 @@ public class Book
      */
     public int getQuantity() {
          return this.quantity;
+    }
+    
+    /**
+     * Display image on our GUI
+     */
+    public void displayBook() {
+        double locX = 100;
+        double locY = 100;
+        final double WIDTH = 100;
+        final double HEIGHT = 100;
+        
+        UI.drawImage(this.image, locX, locY, WIDTH, HEIGHT);
     }
 }
