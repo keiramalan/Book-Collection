@@ -47,8 +47,8 @@ public class Book
     }
     
     /**
-     * Getter for ID
-     * @return int the id
+     * Getter for Quantity
+     * @return int the quantity
      */
     public int getQuantity() {
          return this.quantity;
