@@ -1,4 +1,4 @@
-import java.util.HashMap;   // import the hashmap class
+
 /**
  * Book contains an id, name, author, quantity, image
  * @author 13dtc
