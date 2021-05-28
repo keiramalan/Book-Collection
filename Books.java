@@ -1,5 +1,6 @@
 import java.util.HashMap;   // import the hashmap class
 import ecs100.*;
+import java.awt.Color;
 
 /**
  * Holds collections of books in hashmap
@@ -40,7 +41,7 @@ public class Books
         // initalise book ID
         this.currBookId = 4;
         
-        this.menu();
+        //this.menu();
     }
     
     /**
@@ -52,15 +53,15 @@ public class Books
         do {
             UI.println("(A)dd a book");
             UI.println("(F)ind a book");
-            UI.println("(P)rint a book");
+            UI.println("(P)rint books");
             UI.println("(Q)uit");
             
             choice = UI.askString("Enter a choice: ");
             
             if (choice.equalsIgnoreCase("A")) {
                 addBook();
-            } else if (choice.equalsIgnoreCase("F")) {
-                findBook();
+            //} else if (choice.equalsIgnoreCase("F")) {
+            //    findBook();
             } else if (choice.equalsIgnoreCase("P")) {
                 printAll();
             } else if (choice.equalsIgnoreCase("Q")) {
@@ -89,31 +90,82 @@ public class Books
             quantity = UI.askInt("Quantity: ");
         } while (0 > quantity || quantity > MAX_QUANTITY);
         
+        // add a boook image for display in GUI
+        String imgFileName = UIFileChooser.open("Choose Image File: ");
+        
         // Increment book id counter and add book to hashmap
         currBookId++;
-        booksMap.put(currBookId, new Book(currBookId, name, author, quantity));
+        booksMap.put(currBookId, new Book(currBookId, name, author, quantity, imgFileName));
     }
     
     /**
      * Finds a book based on the id
      * Should refactor to find on name
      */
-    public void findBook() {
-        int bookId = UI.askInt("Id: ");     // finds book on id
-        booksMap.get(bookId).getName();
-        UI.println(booksMap.get(bookId).getName());
+    public void findBook(String bookName) {
+
+        int bookId = -1;
+        for (int tryBookId = 1; tryBookId <= booksMap.size(); tryBookId++) {
+            if (booksMap.get(tryBookId).getName().equalsIgnoreCase(bookName))
+                bookId = tryBookId;
+        }
         
+        if (bookId > 0) {
+            UI.println(booksMap.get(bookId).getName()); // prints book name
+            UI.println("By: " + booksMap.get(bookId).getAuthor()); // prints book author
+            booksMap.get(bookId).displayBook(); // shows book cover on canvas
+        } else {
+            UI.println("No matching title found.");
+        }
     }
     
     /**
      * Prints details of all books
      */
     public void printAll() {
+        UI.setFontSize(20);
+        UI.setColor(Color.blue);
+        // change y position 
+        int pos = 50;
+        // array which holds color 
+        int[] colorNum = new int[3];
+        colorNum[0] = 0;
+        colorNum[1] = 0;
+        colorNum[2] = 0;
+        int colorCounter = 0;
+
+        
         for (int bookId : booksMap.keySet()) {
-            UI.println(bookId + " Details: ");
-            UI.println(booksMap.get(bookId).getName() + "  "
-                        + booksMap.get(bookId).getAuthor() + "  "
-                        + booksMap.get(bookId).getQuantity());
+            
+            // create color
+            Color col = new Color(colorNum[0], colorNum[1], colorNum[2]);
+            // change color
+            UI.setColor(col);
+            
+            UI.drawString(bookId + " Details: ", 100, (pos));
+            UI.drawString(booksMap.get(bookId).getName(), 100, (pos+30));
+            UI.drawString(booksMap.get(bookId).getAuthor(), 100, (pos+50));
+            pos += 80;
+            
+            // change red blue green
+            // add to colorcounter if colorcounter is less than 3
+            // otherwise reset
+            if (colorCounter >= 2) {
+                colorCounter = 0;
+            } else {
+                colorCounter += 1;
+            }
+            
+            // change number in array where colorcounter is
+            // unless surpassed 255, in which case go back to zero
+            if (colorNum[colorCounter] + 30 < 255) {
+                colorNum[colorCounter] += 30;
+            } else {
+                colorNum[colorCounter] = 0;
+            }
+            
+            //UI.drawString(booksMap.get(bookId).getQuantity(), 100, 350);
         }
     }
+    
 }

@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Books
+comment0.text=\r\n\ Holds\ collections\ of\ books\ in\ hashmap\r\n\ Allows\ a\ user\ to\ add,\ find,\ print\ all,\ edit\ from\ a\ menu\r\n\ Prevent\ user\ from\ adding\ a\ duplicate\r\n\r\n\ @author\ 13dtc\r\n\ @version\ 27/5/21\r\n
+comment1.params=
+comment1.target=Books()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Books\r\n
+comment2.params=
+comment2.target=void\ menu()
+comment2.text=\r\n\ Menu\ to\ print\ and\ call\ appropriate\ methods\r\n
+comment3.params=
+comment3.target=void\ addBook()
+comment3.text=\r\n\ Adds\ a\ book\ to\ the\ map\r\n
+comment4.params=bookName
+comment4.target=void\ findBook(java.lang.String)
+comment4.text=\r\n\ Finds\ a\ book\ based\ on\ the\ id\r\n\ Should\ refactor\ to\ find\ on\ name\r\n
+comment5.params=
+comment5.target=void\ printAll()
+comment5.text=\r\n\ Prints\ details\ of\ all\ books\r\n
+numComments=6

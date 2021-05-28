@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Book
+comment0.text=\r\n\ Book\ contains\ an\ id,\ name,\ author,\ quantity,\ image\r\n\ @author\ 13dtc\r\n\ @version\ May\ 2021\r\n
+comment1.params=id\ nm\ auth\ qty\ img
+comment1.target=Book(int,\ java.lang.String,\ java.lang.String,\ int,\ java.lang.String)
+comment2.params=id\ nm\ author\ qty
+comment2.target=Book(int,\ java.lang.String,\ java.lang.String,\ int)
+comment2.text=\r\n\ Constructor\ overloading\r\n\ Set\ default\ image\ \r\n\ Pulls\ info\ from\ other\ method\ and\ adds\ deafult\ image\r\n
+comment3.params=
+comment3.target=int\ getId()
+comment3.text=\r\n\ Getter\ for\ ID\r\n\ @return\ int\ the\ id\r\n
+comment4.params=
+comment4.target=java.lang.String\ getName()
+comment4.text=\r\n\ Getter\ for\ name\r\n\ @return\ string\ the\ name\r\n
+comment5.params=
+comment5.target=java.lang.String\ getAuthor()
+comment5.text=\r\n\ Getter\ for\ author\r\n\ @return\ string\ the\ author\r\n
+comment6.params=
+comment6.target=int\ getQuantity()
+comment6.text=\r\n\ Getter\ for\ Quantity\r\n\ @return\ int\ the\ quantity\r\n
+comment7.params=
+comment7.target=void\ displayBook()
+comment7.text=\r\n\ Display\ image\ on\ our\ GUI\r\n
+numComments=8

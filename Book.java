@@ -14,6 +14,7 @@ public class Book
     private int quantity;
     private String image;
     private static final String DEFAULT_IMAGE = "borzoi.jpg";
+    private double locX, locY;
     
     public Book(int id, String nm, String auth, int qty, String img) {
         // intialise instance variables
@@ -69,10 +70,10 @@ public class Book
      * Display image on our GUI
      */
     public void displayBook() {
-        double locX = 100;
-        double locY = 100;
-        final double WIDTH = 100;
-        final double HEIGHT = 100;
+        locX = 100;
+        locY = 100;
+        final double WIDTH = 200;
+        final double HEIGHT = 200;
         
         UI.drawImage(this.image, locX, locY, WIDTH, HEIGHT);
     }
